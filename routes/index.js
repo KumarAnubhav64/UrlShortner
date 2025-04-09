@@ -1,10 +1,12 @@
-const {generateShortUrl,returnOrginalUrl,urlAnalytics} = require('../controllers/url')
+const {generateShortUrl,returnOrginalUrl,urlAnalytics,test} = require('../controllers/url')
 const express = require('express')
 const router =  express.Router();
 
-//API
-router.post('/URL',generateShortUrl)
-router.get('/:id',returnOrginalUrl)
-router.get('/URL/analytics/:id',urlAnalytics)
 
+
+//API
+router.post('/',generateShortUrl)
+router.get('/:shortId',returnOrginalUrl)
+router.get('/analytics/:id',urlAnalytics)
+//Views
 module.exports =  router
