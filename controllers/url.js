@@ -1,4 +1,4 @@
-const e = require('express')
+const express = require('express')
 const { Url } = require('../model/url')
 const { nanoid } = require('nanoid')
 async function generateShortUrl(req, res) {
@@ -12,7 +12,8 @@ async function generateShortUrl(req, res) {
     await Url.create({
         shortId: shortID,
         redirectURL: body.url,
-        visitHistory: []
+        visitHistory: [],
+        createdBy:req.user._id,
     })
     return res.render('home', {
         id: shortID
